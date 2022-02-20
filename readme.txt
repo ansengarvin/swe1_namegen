@@ -13,9 +13,13 @@ INSTRUCTIONS
 
 4. Read the list of names from response.txt
 
+
+ADDITIONAL NOTES:
 Every time you request a list of names, it will generate names that sound similar to each other, so it sounds like they're a part of the same culture. This means that, if you want to generate names for multiple cultures, you should make multiple requests!
 
-This program automatically clears request.txt after reading. It also automatically clears response.txt before writing its new list of names. This is meant to minimize the amount of work your program has to do - However, it also means you should store your list of names somewhere before making a new request.
+This service will clear request.txt after reading it - You only have to make sure it's clear before the program is started.
+
+This service will automatically overwrite response.txt of any previous names that are stored, so your program does not have to worry about this. You should store the previous list of names before making a new request.
 
 
 PSEUDOCODE FOR MAKING A SINGLE REQUEST
