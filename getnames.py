@@ -47,7 +47,7 @@ def get_name_list(num_words, consonants, vowels):
 
             if generation_attempt_tracker == 1000:
                 print("ERROR: Too many words requested. Please choose a smaller number.")
-                return get_error_list(num_words, message)
+                return get_error_list(num_words, "ERROR: Too many words requested. Please choose a smaller number.")
 
     return name_list
 
