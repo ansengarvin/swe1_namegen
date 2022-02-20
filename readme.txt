@@ -3,6 +3,7 @@ https://docs.python.org/3/using/windows.html
 
 You do not need to install any additional modules to use this program. All modules are built-in to Python.
 
+
 INSTRUCTIONS
 1. Run "getnames.py". You can do this on the command line with "py getnames.py". You may find additional information on how to run python programs here: https://docs.python.org/3/faq/windows.html
 
@@ -12,14 +13,35 @@ INSTRUCTIONS
 
 4. Read the list of names from response.txt
 
-ADDITIONAL NOTES
+Every time you request a list of names, it will generate names that sound similar to each other, so it sounds like they're a part of the same culture. This means that, if you want to generate names for multiple cultures, you should make multiple requests!
 
 This program automatically clears request.txt after reading. It also automatically clears response.txt before writing its new list of names. This is meant to minimize the amount of work your program has to do - However, it also means you should store your list of names somewhere before making a new request.
 
-Every time you request a list of names, it will generate names that sound similar to each other, so it sounds like they're a part of the same culture. This means that, if you want to generate names for multiple cultures, you should make multiple requests!
 
-ERROR HANDLING:
+PSEUDOCODE FOR MAKING A SINGLE REQUEST
+list_of_names = []
 
-If you input a request with a number that's too large (<5000), your name file will be populated with ERROR text.
+open request.txt
+write num_names to request.txt
+close request.txt
 
-If you input a request with something that's not a number, your name file will be populated with 20 ERROR messages.
+wait for response
+
+open response.txt
+for i in range(num_names)
+    new_name = contents of response.txt at line i
+    append new_name to list of names
+close response.txt
+
+# use the list of names as you see fit!
+
+
+TROUBLESHOOTING
+Problem: Program crashes with "Type object is not superscriptable"
+Solution: This usually happens when something's wrong with whatever's input into request.txt. You may be able to fix this by completely clearing the contents of requests.txt
+
+Problem: response.txt is populated with "ERROR: Too many words requested. Please choose a smaller number."
+Solution: This program tries to generate entirely unique names, so this happens when the program runs out of possible words to generate. You are generally a able to generate up over 10,000 names, but if you get this message, input a smaller number.
+
+Problem: response.txt is populated with "ERROR: Non-Number Requested"
+Solution: Make sure you're inputting an integer into request.txt
