@@ -101,11 +101,11 @@ if __name__ == "__main__":
 
         if len(lines) > 0:
             print("Received Request")
-            if lines[0].isnumeric() and int(lines[0]) > 1:
+            if lines[0].isnumeric() and int(lines[0]) > 0:
                 name_list = get_name_list(int(lines[0]), consonants, single_vowels, double_vowels)
             else:
                 print("ERROR: Non-number requested.")
-                name_list = ["ERROR: Invalid Requested"]
+                name_list = ["ERROR: Invalid Number Requested"]
 
             f = open('request.txt', 'w')
             f.write("")
