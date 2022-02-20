@@ -1,11 +1,11 @@
-NOTE: This is a Python program. Follow this link to install python:
+NOTE: This is a Python program. Follow this link to install python on Windows:
 https://docs.python.org/3/using/windows.html
 
 You do not need to install any additional modules to use this program. All modules are built-in to Python.
 
 
 INSTRUCTIONS
-1. Run "getnames.py". You can do this on the command line with "py getnames.py". You may find additional information on how to run python programs here: https://docs.python.org/3/faq/windows.html
+1. Run "getnames.py". You can do this on the command line with "py getnames.py". You may find additional information on how to run python programs on Windows here: https://docs.python.org/3/faq/windows.html
 
 2. Input the number of names you want into request.txt
 
