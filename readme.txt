@@ -41,9 +41,6 @@ close response.txt
 
 
 TROUBLESHOOTING
-Problem: Program crashes with "Type object is not superscriptable"
-Solution: This usually happens when something's wrong with whatever's input into request.txt. You may be able to fix this by completely clearing the contents of requests.txt
-
 Problem: response.txt is populated with "ERROR: Too many words requested. Please choose a smaller number."
 Solution: This program tries to generate entirely unique names, so this happens when the program runs out of possible words to generate. You are generally a able to generate up over 10,000 names, but if you get this message, input a smaller number.
 

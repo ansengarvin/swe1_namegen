@@ -68,19 +68,16 @@ def get_name_list(num_words, consonants, single_vowels, double_vowels):
 
             if generation_attempt_tracker == 1000:
                 print("ERROR: Too many words requested. Please choose a smaller number.")
-                return get_error_list(num_words, "ERROR: Too many words requested. Please choose a smaller number.")
+                return ["ERROR: Too many words requested. Please choose a smaller number."]
 
     return name_list
 
 
-def get_error_list(n, message):
+def get_error_list(message):
     """
     Populates an array with a given message n times.
     """
-    error_array = []
-    for i in range[n]:
-        error_array.append(message)
-
+    error_array = [message]
     return error_array
 
 
@@ -104,11 +101,11 @@ if __name__ == "__main__":
 
         if len(lines) > 0:
             print("Received Request")
-            if lines[0].isnumeric():
+            if lines[0].isnumeric() and int(lines[0]) > 1:
                 name_list = get_name_list(int(lines[0]), consonants, single_vowels, double_vowels)
             else:
                 print("ERROR: Non-number requested.")
-                name_list = get_error_list(20, "ERROR: Non-Number Requested")
+                name_list = ["ERROR: Invalid Requested"]
 
             f = open('request.txt', 'w')
             f.write("")
@@ -121,6 +118,8 @@ if __name__ == "__main__":
                 contents += name_list[i]
                 if i != len(name_list) - 1:
                     contents += '\n'
+
+            contents += name_list[len(name_list) - 1]
             f.write(contents)
             f.close()
 
