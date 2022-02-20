@@ -19,14 +19,35 @@ def make_diphthongs(pool):
 
     return new_array
 
+def choose_vowels(single_vowels, double_vowels, n):
+    num_double_vowels = 0
+    for i in range(n):
+        if random.randint(0, 100) < 25:
+            num_double_vowels += 1
 
-def get_name_list(num_words, consonants, vowels):
+    num_single_vowels = n - num_double_vowels
+
+    print("n=", n)
+    print("num_double_vowels=", num_double_vowels)
+    print("num_single_vowels", num_single_vowels)
+
+    new_vowels = []
+
+    if num_single_vowels > 0:
+        new_vowels += random.choices(single_vowels, k=num_single_vowels)
+
+    if num_double_vowels > 0:
+        new_vowels += random.choices(double_vowels, k=num_double_vowels)
+
+    return new_vowels
+
+def get_name_list(num_words, consonants, single_vowels, double_vowels):
     """
     Generates a list of names from a random selection of 7 consonants and 5 vowels.
     Returns an array of strings.
     """
-    truncated_consonants = random.choices(consonants, k=7)
-    truncated_vowels = random.choices(vowels, k=5)
+    reduced_consonants = random.choices(consonants, k=7)
+    reduced_vowels = choose_vowels(single_vowels, double_vowels, 5)
 
     name_list = []
     duplicate_checker = {}
@@ -36,7 +57,7 @@ def get_name_list(num_words, consonants, vowels):
         generation_attempt_tracker = 0
         while valid == 0:
             generation_attempt_tracker += 1
-            new_name = Word(random.randint(1,3), truncated_consonants, truncated_vowels, "name")
+            new_name = Word(random.randint(1, 3), reduced_consonants, reduced_vowels, "name")
             new_name_string = new_name.stringify()
 
             # Makes sure there aren't any duplicate names.
@@ -69,11 +90,12 @@ if __name__ == "__main__":
     consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w',
                       'x', 'y', 'z', 'ch', 'sh', 'th', 'jh', 'gh', 'tl', 'st', 'sk', 'sp']
 
-    vowel_pool = ['a', 'e', 'i', 'o', 'u']
 
-    vowels = make_diphthongs(vowel_pool)
+    single_vowels = ['a', 'e', 'i', 'o', 'u']
 
-    vowels.append('oo')
+    double_vowels = make_diphthongs(single_vowels)
+
+    double_vowels.append('oo')
 
     while True:
         f = open('request.txt')
@@ -83,7 +105,7 @@ if __name__ == "__main__":
         if len(lines) > 0:
             print("Received Request")
             if lines[0].isnumeric():
-                name_list = get_name_list(int(lines[0]), consonants, vowels)
+                name_list = get_name_list(int(lines[0]), consonants, single_vowels, double_vowels)
             else:
                 print("ERROR: Non-number requested.")
                 name_list = get_error_list(20, "ERROR: Non-Number Requested")
