@@ -1,6 +1,7 @@
-"""
-Word Class
-"""
+# Name: Ansen D. Garvin
+# OSU Email: garvina@oregonstate.edu
+# Patch: 1.0.0
+# Description: A name generation microservice. It selects a few consonants / vowels to create a requested number of names, and returns the list of names.
 import random
 import copy
 from words import Word

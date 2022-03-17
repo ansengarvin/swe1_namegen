@@ -1,6 +1,7 @@
-"""
-Word Class
-"""
+# Name: Ansen D. Garvin
+# OSU Email: garvina@oregonstate.edu
+# Description: Implementation for a Word class. 
+# Inheretence will probably come in handy for when I add varying parts of speech.
 import random
 from syllables import Syllable
 

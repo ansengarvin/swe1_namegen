@@ -1,6 +1,6 @@
-"""
-Syllable class definition file for a language generation program.
-"""
+# Name: Ansen D. Garvin
+# OSU Email: garvina@oregonstate.edu
+# Description: Implementation for a Language class.
 import random
 
 
